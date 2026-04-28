@@ -958,6 +958,8 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
       <p style="color: var(--text-muted); max-width: 600px; margin: 20px auto 0;" data-i18n="revDesc">Feedback real de projetos concluídos.</p>
       <div class="review-container">
         <div class="review-box">
+          <input type="hidden" name="estrelas" id="star-rating-value" value="0">
+
           <div class="review-header">
             <div class="stars-container" id="star-rating">
               <i class="fas fa-star star" data-value="1"></i>
@@ -968,8 +970,12 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
             </div>
             <div class="review-note" data-i18n="revNote">Avaliação confidencial</div>
           </div>
-          <textarea class="review-input" style="height: 120px;" data-i18n="revPlaceholder" placeholder="Como correu o teu projeto? A peça ficou bem? Alguma sugestão?"></textarea>
-          <button class="btn-premium" style="width: 100%;" data-i18n="revBtn">Enviar Avaliação</button>
+          
+          <form id="review-form" action="https://formspree.io/f/mgorgaqd" method="POST" style="margin:0; padding:0; border:none; background:none;">
+            <textarea class="review-input" name="comentario" style="height: 120px;" data-i18n="revPlaceholder" placeholder="Como correu o teu projeto? A peça ficou bem? Alguma sugestão?"></textarea>
+            <button type="submit" id="review-submit-btn" class="btn-premium" style="width: 100%;" data-i18n="revBtn">Enviar Avaliação</button>
+          </form>
+          
           <div class="existing-reviews">
             <div class="review-item">
               <div class="review-meta">
@@ -1009,29 +1015,29 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
           <h2 style="font-size: 48px;" data-i18n="ctcTitle">Tens um problema? Fala connosco.</h2>
           <p style="margin: 30px 0; color: var(--text-muted);" data-i18n="ctcDesc">Seja uma peça simples ou algo mais complexo, estamos prontos. Explica o que precisas e propomos a melhor solução.</p>
           <div style="font-size: 13px; color: var(--text-dim); line-height: 2.5;">
-            <strong data-i18n="ctcEmailLbl">Email:</strong> carlosjoaopereira2007@gmail.com<br>
+            <strong data-i18n="ctcEmailLbl">Email:</strong> AXISEngenharia2026@outlook.com<br>
             <strong data-i18n="ctcLocLbl">Localização:</strong> Porto, Portugal
           </div>
         </div>
         <div class="form-box">
-          <form id="project-form" onsubmit="event.preventDefault();">
+          <form id="project-form" action="https://formspree.io/f/mwvagllk" method="POST">
             <div class="input-group">
               <label data-i18n="formNameLbl">O teu nome *</label>
-              <input type="text" id="input-name" data-placeholder="formNamePlc" placeholder="Como te chamas?" required>
+              <input type="text" id="input-name" name="nome" data-placeholder="formNamePlc" placeholder="Como te chamas?" required>
             </div>
             <div class="input-group">
               <label data-i18n="formEmailLbl">O teu Email *</label>
-              <input type="email" id="input-email" data-placeholder="formEmailPlc" placeholder="Onde te respondemos?" required>
+              <input type="email" id="input-email" name="email" data-placeholder="formEmailPlc" placeholder="Onde te respondemos?" required>
             </div>
             <div class="input-group">
               <label data-i18n="formProjLbl">Carro / Projeto *</label>
-              <input type="text" id="input-proj" data-placeholder="formProjPlc" placeholder="Marca, modelo ou contexto" required>
+              <input type="text" id="input-proj" name="projeto" data-placeholder="formProjPlc" placeholder="Marca, modelo ou contexto" required>
             </div>
             <div class="input-group">
               <label data-i18n="formIdeaLbl">O que precisas *</label>
-              <textarea id="project-details" data-placeholder="formIdeaPlc" placeholder="Descreve o que queres, com as medidas que souberes" rows="5" required></textarea>
+              <textarea id="project-details" name="detalhes" data-placeholder="formIdeaPlc" placeholder="Descreve o que queres, com as medidas que souberes" rows="5" required></textarea>
             </div>
-            <button type="submit" class="btn-premium" style="width: 100%;" data-i18n="formBtn">Enviar</button>
+            <button type="submit" id="submit-btn" class="btn-premium" style="width: 100%;" data-i18n="formBtn">Enviar</button>
           </form>
         </div>
       </div>
@@ -1061,7 +1067,7 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
         <div class="footer-col">
           <h4 data-i18n="ftrContact">Contacto</h4>
           <ul class="footer-links">
-            <li><span style="color: var(--text-dim); font-size: 11px; display: block;" data-i18n="ctcEmailLbl">Email</span>carlosjoaopereira2007@gmail.com</li>
+            <li><span style="color: var(--text-dim); font-size: 11px; display: block;" data-i18n="ctcEmailLbl">Email</span>AXISEngenharia2026@outlook.com</li>
             <li style="margin-top: 12px;"><span style="color: var(--text-dim); font-size: 11px; display: block;" data-i18n="ctcLocLbl">Localização</span>Porto, Portugal</li>
           </ul>
         </div>
@@ -1334,14 +1340,126 @@ function scrollToProject(contextKey) {
 }
 
 // ==========================================
-// STARS
+// STARS + GUARDAR NOTA
 // ==========================================
 document.querySelectorAll('.star').forEach(star => {
   star.addEventListener('click', () => {
     const val = star.getAttribute('data-value');
     document.querySelectorAll('.star').forEach(s => { s.classList.remove('active'); if (s.getAttribute('data-value') <= val) s.classList.add('active'); });
+    document.getElementById('star-rating-value').value = val; 
   });
 });
+
+// ==========================================
+// ENVIO DE AVALIAÇÃO (FORMSPREE)
+// ==========================================
+const reviewForm = document.getElementById('review-form');
+const reviewSubmitBtn = document.getElementById('review-submit-btn');
+
+if(reviewForm) {
+  reviewForm.addEventListener('submit', async function(e) {
+    e.preventDefault(); 
+    
+    const btnTextOriginal = reviewSubmitBtn.innerText;
+    reviewSubmitBtn.innerText = 'A enviar...';
+    reviewSubmitBtn.disabled = true;
+    reviewSubmitBtn.style.opacity = '0.6';
+
+    const formData = new FormData(reviewForm);
+
+    try {
+      const response = await fetch(reviewForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        reviewSubmitBtn.innerText = 'Obrigado pela avaliação!';
+        reviewSubmitBtn.style.background = '#28a745'; 
+        reviewForm.reset(); 
+        document.getElementById('star-rating-value').value = '0'; 
+        document.querySelectorAll('.star').forEach(s => s.classList.remove('active')); 
+        
+        setTimeout(() => {
+          reviewSubmitBtn.innerText = btnTextOriginal;
+          reviewSubmitBtn.style.background = '';
+          reviewSubmitBtn.disabled = false;
+          reviewSubmitBtn.style.opacity = '1';
+        }, 4000);
+
+      } else {
+        throw new Error('Erro no envio');
+      }
+    } catch (error) {
+      reviewSubmitBtn.innerText = 'Erro. Tenta novamente.';
+      reviewSubmitBtn.style.background = '#dc3545'; 
+      setTimeout(() => {
+        reviewSubmitBtn.innerText = btnTextOriginal;
+        reviewSubmitBtn.style.background = '';
+        reviewSubmitBtn.disabled = false;
+        reviewSubmitBtn.style.opacity = '1';
+      }, 3000);
+    }
+  });
+}
+
+
+// ==========================================
+// ENVIO DE FORMULÁRIO DE CONTACTO (FORMSPREE)
+// ==========================================
+const form = document.getElementById('project-form');
+const submitBtn = document.getElementById('submit-btn');
+
+if(form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault(); 
+    
+    const btnTextOriginal = submitBtn.innerText;
+    submitBtn.innerText = 'A enviar...';
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.6';
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        submitBtn.innerText = 'Mensagem Enviada com Sucesso!';
+        submitBtn.style.background = '#28a745'; 
+        form.reset(); 
+        
+        setTimeout(() => {
+          submitBtn.innerText = btnTextOriginal;
+          submitBtn.style.background = '';
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+        }, 4000);
+
+      } else {
+        throw new Error('Erro no envio');
+      }
+    } catch (error) {
+      submitBtn.innerText = 'Ocorreu um erro. Tenta novamente.';
+      submitBtn.style.background = '#dc3545'; 
+      setTimeout(() => {
+        submitBtn.innerText = btnTextOriginal;
+        submitBtn.style.background = '';
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+      }, 3000);
+    }
+  });
+}
 
 updateContent();
 </script>
