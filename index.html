@@ -81,7 +81,7 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color:
 .section-tag { display: flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 24px; }
 
 /* HEADER */
-header { position: fixed; top: 0; width: 100%; height: 90px; background: var(--header-bg); backdrop-filter: blur(25px); border-bottom: 1px solid var(--border-subtle); z-index: 1000; transition: background-color 0.5s ease, border-color 0.5s ease; }
+header { position: fixed; top: 0; width: 100%; height: 90px; background: var(--header-bg); backdrop-filter: blur(25px); border-bottom:1px solid var(--border-subtle); z-index: 1000; transition: background-color 0.5s ease, border-color 0.5s ease; }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
 .brand-logo-container { display: flex; align-items: center; height: 75px; text-decoration: none; position: relative; flex-shrink: 0; }
 .brand-logo-container img { position: absolute; height: 100%; width: auto; object-fit: contain; }
@@ -130,7 +130,7 @@ nav a:hover, nav a.active { color: var(--accent-blue); }
 
 /* 3D TOOL SECTION & SETTINGS PANEL STYLE */
 .stl-tool-wrapper, .product-detail-wrapper { display: grid; grid-template-columns: 1fr 350px; gap: 0; margin-top: 60px; border: 1px solid var(--border-subtle); border-radius: 4px; overflow: hidden; background: var(--bg-panel); height: 600px; }
-.viewer-container { position: relative; background: #1a1a1a; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.viewer-container { position: relative; background: #1a1a1a; overflow: hidden; display: flex; align-items: center; justify-content: center; } /* Melhoria: Fundo cinza escuro em vez de preto puro */
 .viewer-container canvas { display: block; outline: none; }
 .upload-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(26, 26, 26, 0.85); backdrop-filter: blur(10px); z-index: 10; transition: opacity 0.3s; }
 .upload-overlay.hidden { opacity: 0; pointer-events: none; }
@@ -226,7 +226,6 @@ nav a:hover, nav a.active { color: var(--accent-blue); }
 .input-group label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-dim); margin-bottom: 10px; }
 .input-group input, .input-group textarea { width: 100%; background: var(--input-bg); border: none; border-bottom: 1px solid var(--border-subtle); padding: 14px 8px; color: var(--text-main); font-size: 16px; outline: none; transition: 0.3s; font-family: inherit; }
 .input-group input:focus, .input-group textarea:focus { border-bottom-color: var(--accent-blue); background: var(--bg-main); }
-#order-file-input { display: none; } <!-- Escondido para uso automático via JS -->
 
 /* FOOTER */
 footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px solid var(--border-subtle); }
@@ -250,7 +249,7 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
 .product-detail-logo { height: 34px; position: relative; }
 .product-detail-logo img { position: absolute; height: 100%; width: auto; object-fit: contain; }
 .product-detail-content { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: calc(100vh - 70px); }
-.product-detail-image-side { background: #1a1a1a; display: flex; align-items: center; justify-content: center; padding: 48px; border-right: 1px solid var(--border-subtle); position: relative; }
+.product-detail-image-side { background: #1a1a1a; display: flex; align-items: center; justify-content: center; padding: 48px; border-right: 1px solid var(--border-subtle); position: relative; } /* Melhoria: Fundo mais claro */
 .product-detail-image-side img { max-width: 100%; max-height: 65vh; object-fit: contain; filter: var(--filter-base); transition: filter 0.5s; }
 .product-detail-image-side:hover img { filter: var(--filter-hover); }
 #product-3d-container { width: 100%; height: 65vh; display: none; }
@@ -291,7 +290,6 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
   .stl-tool-wrapper, .product-detail-wrapper { grid-template-columns: 1fr; height: auto; }
   .viewer-container { height: 400px; }
   .tool-sidebar, .pd-sidebar { height: auto; border-left: none; border-top: 1px solid var(--border-subtle); }
-  .brand-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 680px) {
@@ -551,7 +549,7 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
           </div>
         </div>
         <!-- STATIC PRODUCT -->
-        <div class="product-card" onclick="openProductDatail(1)">
+        <div class="product-card" onclick="openProductDetail(1)">
           <div class="product-img">
             <img src="2025-12-15_04f5a4d4c29cc.png" alt="Suporte 3D">
           </div>
@@ -562,7 +560,7 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
           </div>
         </div>
         <!-- STATIC PRODUCT -->
-        <div class="product-card" onclick="openProductDatail(2)">
+        <div class="product-card" onclick="openProductDetail(2)">
           <div class="product-img">
             <img src="2025-03-02_7d7349e2d28c3.png" alt="Acessório AXIS">
           </div>
@@ -597,7 +595,7 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
           <p data-i18n="hiw3Desc">Desenhamos a peça no computador com as medidas exatas para encaixar onde deve.</p>
         </div>
         <div class="protocol-step">
-          <span class="step-id">04</span>
+          <span class="step-num">04</span>
           <h3 data-i18n="hiw4Title">Impressão</h3>
           <p data-i18n="hiw4Desc">Mandamos para a impressora 3D. A peça sai com a forma e resistência certas.</p>
         </div>
@@ -721,9 +719,6 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
         </div>
         <div class="form-box">
           <form id="project-form" action="https://formspree.io/f/mwvagllk" method="POST">
-            <!-- Input escondido para permitir anexos se necessário, mas vamos usar o automático via JS -->
-            <input type="file" id="order-file-input" name="stl_attachment" style="display: none;">
-            
             <div class="input-group">
               <label data-i18n="formNameLbl">O teu nome *</label>
               <input type="text" id="input-name" name="nome" data-placeholder="formNamePlc" placeholder="Como te chamas?" required>
@@ -740,7 +735,7 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
               <label data-i18n="formIdeaLbl">O que precisas *</label>
               <textarea id="project-details" name="detalhes" data-placeholder="formIdeaPlc" placeholder="Descreve o que queres, com as medidas que souberes" rows="5" required></textarea>
             </div>
-            <button type="button" id="submit-btn" class="btn-premium" style="width: 100%;" data-i18n="formBtn">Enviar</button>
+            <button type="submit" id="submit-btn" class="btn-premium" style="width: 100%;" data-i18n="formBtn">Enviar</button>
           </form>
         </div>
       </div>
@@ -851,7 +846,7 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
                     <label data-i18n="lblInfill">Preenchimento (Infill)</label>
                     <select id="pd-infill-select" class="form-select">
                       <option value="0.20" data-mult="1.0">20% (Standard)</option>
-                      <value="0.40" data-mult="1.5">40% (Forte)</option>
+                      <option value="0.40" data-mult="1.5">40% (Forte)</option>
                       <option value="1.00" data-mult="2.2">100% (Sólido)</option>
                     </select>
                 </div>
@@ -901,7 +896,7 @@ let stlColor = "#000000";
 let scene, camera, renderer, controls, mesh;
 let currentVolume = 0; 
 let currentFilename = "";
-const MIN_PRICE = 5.00;
+const MIN_PRICE =5.00;
 
 function initThreeJS() {
   scene = new THREE.Scene();
@@ -962,9 +957,6 @@ function handleFileSelect(event) {
   if (!file) return;
 
   currentFilename = file.name;
-  // IMPORTANTE: Guardar ficheiro para uso no pedido
-  window.lastUploadedFile = file; 
-
   const reader = new FileReader();
 
   toolStatus.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span data-i18n="statusLoading">A processar modelo...</span>';
@@ -1191,7 +1183,7 @@ const carBrands = [
     { name: "Maserati", file: "Maserati.stl" },
     { name: "Mazda", file: "Mazda.stl" },
     { name: "McLaren", file: "McLaren.stl" },
-    { name: "Mercedes", file: "Mercedes.stl" }, // Corrigido
+    { name: "Mercedes", file: "Mercedes.stl" }, // Corrigido (faltava o 'c')
     { name: "Mini", file: "Mini.stl" },
     { name: "Mitsubishi", file: "Mitsubishi.stl" },
     { name: "Nissan", file: "Nissan.stl" },
@@ -1199,10 +1191,10 @@ const carBrands = [
     { name: "Peugeot", file: "Peugeot.stl" },
     { name: "Porsche", file: "Porsche.stl" },
     { name: "Renault", file: "Renault.stl" },
-    { name: "Seat", file: "seat.stl" }, // Corrigido (estava em minusculo)
+    { name: "Seat", file: "Seat.stl" },
     { name: "Skoda", file: "Skoda.stl" },
     { name: "Subaru", file: "Subaru.stl" },
-    { name: "Suzuki", file: "Suzuki.stl" }, // Corrigido
+    { name: "Suzuki", file: "Suzuki.stl" }, // Corrigido (faltava o 'k')
     { name: "Tesla", file: "Tesla.stl" },
     { name: "Toyota", file: "Toyota.stl" },
     { name: "Volkswagen", file: "Volkswagen.stl" },
@@ -1212,13 +1204,12 @@ const carBrands = [
 let currentSelectedBrand = "Audi"; // Default brand
 let currentConfiguratorColor = "#000000"; // Shared color state
 const KEYCHAIN_PRICE = 6.50; // Preço Fixo Chaveiro
-// Variável global para guardar o ficheiro
-window.lastUploadedFile = null;
 
 // PRODUCT DATA
 const productsData = [
   {
-    isConfigurator: true, // Chaveiro
+    // CHAVEIRO (Configurador - 3D)
+    isConfigurator: true, 
     image: "", 
     title: { pt: "Chaveiro AXIS", en: "AXIS Keychain" },
     desc: { pt: "Chaveiro com logótipos de marcas automóveis. Personalizável em 3D.", en: "Keychain with automotive brand logos. Customizable in 3D." },
@@ -1227,6 +1218,7 @@ const productsData = [
     status: { pt: "Disponível", en: "Available" }
   },
   {
+    // SUPORTE 3D (Estático - Apenas Imagem)
     isConfigurator: false,
     image: "2025-12-15_04f5a4d4c29cc.png",
     title: { pt: "Suporte 3D", en: "3D Bracket" },
@@ -1236,6 +1228,7 @@ const productsData = [
     status: { pt: "Disponível", en: "Available" }
   },
   {
+    // ACESSÓRIO AXIS (Estático - Apenas Imagem)
     isConfigurator: false,
     image: "2025-03-02_7d7349e2d28c3.png",
     title: { pt: "Acessório AXIS", en: "AXIS Accessory" },
@@ -1247,7 +1240,7 @@ const productsData = [
 ];
 
 // PRODUCT DETAIL
-function openProductDatail(index) {
+function openProductDetail(index) {
   const product = productsData[index];
   const lang = currentLang;
   const ov = document.getElementById('product-detail-overlay');
@@ -1275,10 +1268,10 @@ function openProductDatail(index) {
     // CONFIGURADOR MODE (Chaveiro)
     console.log("Abrindo Configurador (Chaveiro)...");
     
-    imageContainer.style.display = 'none'; // Esconde imagem estática
-    threeContainer.style.display = 'block'; // Mostra visualizador 3D
-    configContainer.style.display = 'block'; // Mostra opções (cores, marcas)
-    staticInfo.style.display = 'none'; // Esconde texto estático
+    imageContainer.style.display = 'none';
+    threeContainer.style.display = 'block';
+    configContainer.style.display = 'block';
+    staticInfo.style.display = 'none';
     pdOrderBtn.style.display = 'block';
 
     document.querySelector('.pd-status span').textContent = product.status[lang];
@@ -1346,12 +1339,15 @@ function openProductDatail(index) {
     document.querySelector('.pd-status span').textContent = product.status[lang];
     document.getElementById('pd-desc').textContent = product.desc[lang];
     document.getElementById('pd-specs').innerHTML = '';
-    product.specs.forEach(s => { 
-        const r = document.createElement('div'); 
-        r.className = 'spec-row'; 
-        r.innerHTML = `<span class="spec-label">${s.label[lang]}</span><span class="spec-value">${s.value[lang]}</span>`; 
-        document.getElementById('pd-specs').appendChild(r); 
-    });
+    
+    if(product.specs && product.specs.length > 0) {
+        product.specs.forEach(s => { 
+            const r = document.createElement('div'); 
+            r.className = 'spec-row'; 
+            r.innerHTML = `<span class="spec-label">${s.label[lang]}</span><span class="spec-value">${s.value[lang]}</span>`; 
+            document.getElementById('pd-specs').appendChild(r); 
+        });
+    }
     
     // Static order button logic
     pdOrderBtn.style.display = 'block';
@@ -1368,6 +1364,7 @@ function openProductDatail(index) {
   });
 }
 
+// GLOBAL HELPER FUNCTIONS
 window.updateConfiguratorColor = function(btn, color) {
     document.querySelectorAll('#configurator-container .color-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -1402,7 +1399,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const m = location.hash.match(/^#product-(\d+)$/); 
   if (m) { 
     const i = parseInt(m[1]); 
-    if (productsData[i]) setTimeout(() => openProductDatail(i), 500); 
+    if (productsData[i]) setTimeout(() => openProductDetail(i), 500); 
   } 
 });
 
@@ -1530,87 +1527,16 @@ function scrollToProject(contextKey) {
   setTimeout(() => { df.focus(); const v = df.value; df.value=''; df.value = v; }, 800);
 }
 
-// ==========================================
-// NOVA LÓGICA DE ENVIO COM ANEXO DE FICHEIRO
-// ==========================================
 window.scrollToProjectStl = function(message) {
   const cs = document.getElementById('contact');
   const df = document.getElementById('project-details');
   const pj = document.getElementById('input-proj');
-  const form = document.getElementById('project-form');
-  const submitBtn = document.getElementById('submit-btn');
   
-  // 1. Preenche os campos de texto
   pj.value = "Orçamento / Pedido via Ferramenta Online";
   df.value = message;
   
-  // 2. Prepara o objeto FormData
-  let formData = new FormData();
-  formData.append('nome', document.getElementById('input-name').value);
-  formData.append('email', document.getElementById('input-email').value);
-  formData.append('projeto', pj.value);
-  formData.append('detalhes', df.value);
-
-  // 3. Lógica de Anexo de Ficheiro 3D
-  if (window.lastUploadedFile) {
-      // Se o utilizador carregou um ficheiro, anexamos automaticamente
-      formData.append('stl_attachment', window.lastUploadedFile);
-      console.log("Anexando ficheiro automático:", window.lastUploadedFile.name);
-  } else {
-      // Se não houver ficheiro (ex: pedido de produto estático), envia sem anexo
-      console.log("Enviando pedido sem anexo 3D.");
-  }
-
-  // 4. Feedback visual no botão
-  const btnTextOriginal = submitBtn.innerText;
-  submitBtn.innerText = 'A Enviar...';
-  submitBtn.disabled = true;
-  submitBtn.style.opacity = '0.6';
-
-  // 5. Envia via Fetch (AJAX) para evitar recarregar a página
-  // O parametro ?redirect=false diz ao Formspree para não redirecionar, mas devolver o JSON para o sucesso JS
-  fetch(form.action + '?redirect=false', {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-  })
-    .then(response => response.json())
-    .then(data => {
-      // SUCESSO
-      submitBtn.innerText = 'Enviado com Sucesso!';
-      submitBtn.style.background = '#28a745'; 
-      form.reset(); 
-      // Reset da variável do ficheiro após envio
-      window.lastUploadedFile = null; 
-      
-      // Fecha o modal de detalhes se estiver aberto
-      const ov = document.getElementById('product-detail-overlay');
-      if(ov && ov.classList.contains('open')) {
-          closeProductDetail();
-      }
-      
-      // Opcional: Mostrar alerta (Toast)
-      alert("Obrigado! O teu pedido foi enviado com sucesso.");
-      
-      setTimeout(() => {
-        submitBtn.innerText = btnTextOriginal;
-        submitBtn.style.background = '';
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-      }, 4000);
-    })
-    .catch(error => {
-      // ERRO
-      console.error('Erro no envio:', error);
-      submitBtn.innerText = 'Erro no envio. Tenta novamente.';
-      submitBtn.style.background = '#dc3545'; 
-      setTimeout(() => {
-        submitBtn.innerText = btnTextOriginal;
-        submitBtn.style.background = '';
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-      }, 3000);
-    });
+  cs.scrollIntoView({ behavior:'smooth' });
+  setTimeout(() => { df.focus(); const v = df.value; df.value=''; df.value = v; }, 800);
 };
 
 document.querySelectorAll('.star').forEach(star => {
