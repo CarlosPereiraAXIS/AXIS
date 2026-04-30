@@ -6,6 +6,19 @@
 <title>AXIS — Engenharia & Manufatura Aditiva.</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23003d99'/%3E%3Cstop offset='100%25' stop-color='%2333aaff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='26' y='2' width='12' height='60' rx='6' transform='rotate(45 32 32)' fill='url(%23a)'/%3E%3Crect x='26' y='2' width='12' height='60' rx='6' transform='rotate(-45 32 32)' fill='url(%23a)'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- =========================================
+     GOOGLE ANALYTICS (TEU ID: G-XKXJXV0785)
+     ========================================= -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XKXJXV0785"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XKXJXV0785');
+</script>
+
 <style>
 :root {
   --bg-main: #050505;
@@ -108,7 +121,8 @@ header {
 .brand-logo-container {
   display: flex;
   align-items: center;
-  height: 50px;
+  /* AUMENTADO DE 50PX PARA 75PX PARA FICAR MAIOR */
+  height: 75px; 
   text-decoration: none;
   position: relative;
   flex-shrink: 0;
@@ -171,16 +185,7 @@ nav a:hover, nav a.active { color: var(--accent-blue); }
 .btn-premium:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 85, 255, 0.3); }
 
 /* HAMBURGER */
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--text-main);
-  font-size: 22px;
-  cursor: pointer;
-  padding: 8px;
-  line-height: 1;
-}
+.hamburger { display: none; background: none; border: none; color: var(--text-main); font-size: 22px; cursor: pointer; padding: 8px; line-height: 1; }
 
 /* MOBILE MENU */
 .mobile-menu {
@@ -197,175 +202,153 @@ nav a:hover, nav a.active { color: var(--accent-blue); }
   transition: opacity 0.4s ease;
 }
 .mobile-menu.open { display: flex; opacity: 1; }
-
-.mobile-menu a {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: 0.3s;
-}
+.mobile-menu a { font-size: 16px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: 0.3s; }
 .mobile-menu a:hover { color: var(--accent-blue); }
-
-.mobile-menu-close {
-  position: absolute;
-  top: 28px;
-  right: 28px;
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-size: 28px;
-  cursor: pointer;
-  padding: 8px;
-}
+.mobile-menu-close { position: absolute; top: 28px; right: 28px; background: none; border: none; color: var(--text-muted); font-size: 28px; cursor: pointer; padding: 8px; }
 
 /* HERO */
-.hero {
-  height: 100vh;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: 80px;
-  position: relative;
-  border-bottom: 1px solid var(--border-subtle);
-}
+.hero { height: 100vh; min-height: 100vh; display: flex; align-items: center; padding-top: 80px; position: relative; border-bottom: 1px solid var(--border-subtle); }
 .hero-content { max-width: 900px; }
 .hero h1 { font-size: clamp(40px, 7vw, 88px); margin-bottom: 32px; }
 .hero h1 span { color: var(--accent-blue); display: block; }
 .hero-actions { display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap; }
-
-.btn-outline {
-  border: 1px solid var(--border-subtle);
-  color: var(--text-main);
-  padding: 14px 28px;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  text-decoration: none;
-  font-weight: 700;
-  transition: 0.3s;
-  display: inline-block;
-  white-space: nowrap;
-}
+.btn-outline { border: 1px solid var(--border-subtle); color: var(--text-main); padding: 14px 28px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; text-decoration: none; font-weight: 700; transition: 0.3s; display: inline-block; white-space: nowrap; }
 .btn-outline:hover { border-color: var(--accent-blue); background: var(--bg-card); }
 
 /* SECTIONS */
 .section { padding: 100px 0; border-bottom: 1px solid var(--border-subtle); transition: border-color 0.5s ease; }
 
 /* SERVICES */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border-subtle);
-  border: 1px solid var(--border-subtle);
-  margin-top: 60px;
-}
-
-.service-card {
-  background: var(--bg-main);
-  padding: 50px 36px;
-  transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-subtle); border: 1px solid var(--border-subtle); margin-top: 60px; }
+.service-card { background: var(--bg-main); padding: 50px 36px; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; height: 100%; }
 .service-card:hover { background: var(--bg-panel); transform: translateY(-5px); }
-
-.img-preview {
-  width: 100%;
-  height: 220px;
-  background-color: var(--bg-panel);
-  margin-bottom: 28px;
-  overflow: hidden;
-  border-radius: 2px;
-}
+.img-preview { width: 100%; height: 220px; background-color: var(--bg-panel); margin-bottom: 28px; overflow: hidden; border-radius: 2px; }
 .service-card img { width: 100%; height: 100%; object-fit: cover; filter: var(--filter-base); transition: 0.8s; }
 .service-card:hover img { filter: var(--filter-hover); opacity: 1; transform: scale(1.05); }
 .service-card h3 { font-size: 22px; margin-bottom: 16px; }
 .service-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; flex-grow: 1; }
-
-.start-project-btn {
-  color: var(--accent-blue);
-  font-weight: 800;
-  text-decoration: none;
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  padding: 0;
-  transition: 0.3s;
-}
+.start-project-btn { color: var(--accent-blue); font-weight: 800; text-decoration: none; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; background: none; border: none; cursor: pointer; text-align: left; padding: 0; transition: 0.3s; }
 .start-project-btn:hover { color: var(--text-main); }
 
-/* PRODUCTS */
-.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
-
-.product-card {
-  background: var(--bg-card);
+/* 3D TOOL SECTION */
+.stl-tool-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 0;
+  margin-top: 60px;
   border: 1px solid var(--border-subtle);
   border-radius: 4px;
   overflow: hidden;
-  transition: 0.4s;
+  background: var(--bg-panel);
+  height: 600px;
+}
+.viewer-container {
   position: relative;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.viewer-container canvas { display: block; outline: none; }
+
+.upload-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 15, 18, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  transition: opacity 0.3s;
+}
+.upload-overlay.hidden { opacity: 0; pointer-events: none; }
+
+.upload-box {
+  border: 2px dashed var(--border-subtle);
+  padding: 60px;
+  text-align: center;
+  border-radius: 8px;
+  transition: 0.3s;
   cursor: pointer;
 }
-.product-card:hover { transform: translateY(-6px); border-color: var(--accent-blue); }
+.upload-box:hover { border-color: var(--accent-blue); background: var(--bg-card); }
+.upload-icon { font-size: 48px; color: var(--accent-blue); margin-bottom: 20px; }
+.upload-text { color: var(--text-main); font-weight: 600; font-size: 18px; margin-bottom: 8px; }
+.upload-sub { color: var(--text-dim); font-size: 13px; }
 
-.product-img {
-  width: 100%;
-  aspect-ratio: 1;
-  background: var(--bg-panel);
-  overflow: hidden;
+.tool-sidebar {
+  padding: 32px;
+  background: var(--bg-main);
+  border-left: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
 }
-.product-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.65; transition: 0.6s; }
-.product-card:hover .product-img img { opacity: 0.95; transform: scale(1.05); }
 
-.product-info { padding: 24px; border-top: 1px solid var(--border-subtle); }
-.product-info h3 { font-size: 18px; margin-bottom: 8px; }
-
-.coming-soon-badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: rgba(0, 85, 255, 0.9);
-  color: #fff;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.15em;
+.tool-status {
+  font-size: 11px;
   text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: 3px;
-  z-index: 2;
-}
-
-.product-click-hint {
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 14px;
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  transition: color 0.3s;
 }
+.tool-status.success { color: #00cc66; }
+
+.form-group label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-dim); margin-bottom: 10px; }
+.form-select {
+  width: 100%;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  padding: 12px;
+  font-family: inherit;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.price-display {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+}
+.price-label { font-size: 10px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+.price-value { font-size: 32px; font-weight: 800; color: var(--accent-blue); }
+.price-note { font-size: 11px; color: var(--text-dim); margin-top: 8px; }
+
+.min-price-note {
+  font-size: 10px;
+  color: #ffcc00;
+  text-align: center;
+  margin-top: -15px;
+  margin-bottom: 15px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.min-price-note.visible { opacity: 1; }
+
+/* PRODUCTS */
+.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+.product-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 4px; overflow: hidden; transition: 0.4s; position: relative; cursor: pointer; }
+.product-card:hover { transform: translateY(-6px); border-color: var(--accent-blue); }
+.product-img { width: 100%; aspect-ratio: 1; background: var(--bg-panel); overflow: hidden; }
+.product-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.65; transition: 0.6s; }
+.product-card:hover .product-img img { opacity: 0.95; transform: scale(1.05); }
+.product-info { padding: 24px; border-top: 1px solid var(--border-subtle); }
+.product-info h3 { font-size: 18px; margin-bottom: 8px; }
+.coming-soon-badge { position: absolute; top: 16px; right: 16px; background: rgba(0, 85, 255, 0.9); color: #fff; font-size: 9px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 12px; border-radius: 3px; z-index: 2; }
+.product-click-hint { display: flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); transition: color 0.3s; }
 .product-card:hover .product-click-hint { color: var(--accent-blue); }
 
 /* HOW IT WORKS */
-.protocol-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
-  background: var(--border-subtle);
-  margin-top: 60px;
-  border: 1px solid var(--border-subtle);
-}
+.protocol-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--border-subtle); margin-top: 60px; border: 1px solid var(--border-subtle); }
 .protocol-step { background: var(--bg-main); padding: 36px 24px; transition: 0.3s; }
 .protocol-step:hover { background: var(--bg-panel); }
 .step-num { color: var(--accent-blue); font-size: 12px; font-weight: 900; margin-bottom: 16px; display: block; }
@@ -373,45 +356,17 @@ nav a:hover, nav a.active { color: var(--accent-blue); }
 .protocol-step p { font-size: 13px; color: var(--text-muted); }
 
 .lead-times { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 50px; }
-.time-card {
-  padding: 32px 20px;
-  border: 1px solid var(--border-subtle);
-  background: var(--bg-card);
-  text-align: center;
-}
+.time-card { padding: 32px 20px; border: 1px solid var(--border-subtle); background: var(--bg-card); text-align: center; }
 .time-card h4 { font-size: 40px; margin-bottom: 8px; }
 .time-card p { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-dim); }
 
 /* GALLERY */
-.gallery-mosaic {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: 220px;
-  gap: 16px;
-  margin-top: 60px;
-}
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-  grid-column: span 4;
-  background-color: var(--bg-panel);
-}
+.gallery-mosaic { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 220px; gap: 16px; margin-top: 60px; }
+.gallery-item { position: relative; overflow: hidden; border-radius: 4px; grid-column: span 4; background-color: var(--bg-panel); }
 .gallery-item.large { grid-column: span 8; grid-row: span 2; }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.8s; display: block; }
 .gallery-item:hover img { opacity: 1; transform: scale(1.05); }
-
-.gallery-overlay {
-  position: absolute;
-  inset: 0;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: var(--overlay-bg);
-  opacity: 0;
-  transition: 0.5s;
-}
+.gallery-overlay { position: absolute; inset: 0; padding: 28px; display: flex; flex-direction: column; justify-content: flex-end; background: var(--overlay-bg); opacity: 0; transition: 0.5s; }
 .gallery-item:hover .gallery-overlay { opacity: 1; }
 .gallery-overlay h3 { color: #ffffff; }
 
@@ -420,41 +375,15 @@ nav a:hover, nav a.active { color: var(--accent-blue); }
 
 /* REVIEWS */
 .review-container { max-width: 900px; margin: 60px auto 0; }
-
-.review-box {
-  background: var(--bg-panel);
-  padding: 48px;
-  border-radius: 8px;
-  border: 1px solid var(--border-subtle);
-}
-
+.review-box { background: var(--bg-panel); padding: 48px; border-radius: 8px; border: 1px solid var(--border-subtle); }
 .review-header { text-align: center; margin-bottom: 32px; }
 .stars-container { display: flex; gap: 12px; justify-content: center; margin-bottom: 16px; }
-.star {
-  font-size: 26px;
-  color: var(--text-dim);
-  cursor: pointer;
-  transition: 0.3s transform cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s;
-}
+.star { font-size: 26px; color: var(--text-dim); cursor: pointer; transition: 0.3s transform cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s; }
 .star:hover { transform: scale(1.2); color: #ffcc00; }
 .star.active { color: #ffcc00; }
 .review-note { font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; }
-
-.review-input {
-  width: 100%;
-  background: var(--input-bg);
-  border: 1px solid var(--border-subtle);
-  padding: 16px;
-  color: var(--text-main);
-  font-size: 14px;
-  margin-bottom: 16px;
-  border-radius: 4px;
-  resize: none;
-  font-family: inherit;
-  transition: border-color 0.3s;
-}
+.review-input { width: 100%; background: var(--input-bg); border: 1px solid var(--border-subtle); padding: 16px; color: var(--text-main); font-size: 14px; margin-bottom: 16px; border-radius: 4px; resize: none; font-family: inherit; transition: border-color 0.3s; }
 .review-input:focus { outline: none; border-color: var(--accent-blue); }
-
 .existing-reviews { margin-top: 48px; border-top: 1px solid var(--border-subtle); padding-top: 32px; }
 .review-item { padding: 24px 0; border-bottom: 1px solid var(--border-subtle); }
 .review-item:last-child { border-bottom: none; }
@@ -462,50 +391,20 @@ nav a:hover, nav a.active { color: var(--accent-blue); }
 .review-stars-display { display: flex; gap: 3px; color: #ffcc00; font-size: 13px; }
 .review-date { font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; }
 .review-text { font-size: 13px; color: var(--text-muted); line-height: 1.8; }
-.review-context {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--accent-blue);
-  background: var(--bg-card);
-  padding: 5px 10px;
-  border-radius: 3px;
-  margin-bottom: 10px;
-}
+.review-context { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-blue); background: var(--bg-card); padding: 5px 10px; border-radius: 3px; margin-bottom: 10px; }
 
 /* CONTACT */
 .contact-section { padding: 100px 0; background: var(--bg-panel); }
 .contact-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; }
-
-.form-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  padding: 48px;
-  border-radius: 6px;
-}
-
+.form-box { background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 48px; border-radius: 6px; }
 .input-group { margin-bottom: 24px; }
 .input-group label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-dim); margin-bottom: 10px; }
-.input-group input, .input-group textarea {
-  width: 100%;
-  background: var(--input-bg);
-  border: none;
-  border-bottom: 1px solid var(--border-subtle);
-  padding: 14px 8px;
-  color: var(--text-main);
-  font-size: 16px;
-  outline: none;
-  transition: 0.3s;
-  font-family: inherit;
-}
+.input-group input, .input-group textarea { width: 100%; background: var(--input-bg); border: none; border-bottom: 1px solid var(--border-subtle); padding: 14px 8px; color: var(--text-main); font-size: 16px; outline: none; transition: 0.3s; font-family: inherit; }
 .input-group input:focus, .input-group textarea:focus { border-bottom-color: var(--accent-blue); background: var(--bg-main); }
 
 /* FOOTER */
 footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px solid var(--border-subtle); }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; }
-
 .footer-logo-box { height: 42px; margin-bottom: 18px; position: relative; }
 .footer-logo-box img { position: absolute; height: 100%; width: auto; object-fit: contain; }
 .footer-text { color: var(--text-muted); font-size: 13px; line-height: 1.8; }
@@ -516,90 +415,25 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
 .footer-links a:hover { color: var(--text-main); }
 
 /* PRODUCT DETAIL */
-.product-detail-overlay {
-  position: fixed;
-  inset: 0;
-  background: var(--bg-main);
-  z-index: 2000;
-  overflow-y: auto;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-}
+.product-detail-overlay { position: fixed; inset: 0; background: var(--bg-main); z-index: 2000; overflow-y: auto; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; }
 .product-detail-overlay.open { opacity: 1; visibility: visible; }
 .product-detail-inner { min-height: 100vh; }
-
-.product-detail-topbar {
-  position: sticky;
-  top: 0;
-  height: 70px;
-  background: var(--header-bg);
-  backdrop-filter: blur(25px);
-  border-bottom: 1px solid var(--border-subtle);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 60px;
-  z-index: 10;
-}
-
-.product-detail-back {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: 0.3s;
-  font-family: inherit;
-}
+.product-detail-topbar { position: sticky; top: 0; height: 70px; background: var(--header-bg); backdrop-filter: blur(25px); border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; padding: 0 60px; z-index: 10; }
+.product-detail-back { display: flex; align-items: center; gap: 10px; background: none; border: none; color: var(--text-muted); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: 0.3s; font-family: inherit; }
 .product-detail-back:hover { color: var(--accent-blue); }
-
 .product-detail-logo { height: 34px; position: relative; }
 .product-detail-logo img { position: absolute; height: 100%; width: auto; object-fit: contain; }
-
-.product-detail-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  min-height: calc(100vh - 70px);
-}
-
-.product-detail-image-side {
-  background: var(--bg-panel);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 48px;
-  border-right: 1px solid var(--border-subtle);
-}
-.product-detail-image-side img {
-  max-width: 100%;
-  max-height: 65vh;
-  object-fit: contain;
-  filter: var(--filter-base);
-  transition: filter 0.5s;
-}
+.product-detail-content { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: calc(100vh - 70px); }
+.product-detail-image-side { background: var(--bg-panel); display: flex; align-items: center; justify-content: center; padding: 48px; border-right: 1px solid var(--border-subtle); }
+.product-detail-image-side img { max-width: 100%; max-height: 65vh; object-fit: contain; filter: var(--filter-base); transition: filter 0.5s; }
 .product-detail-image-side:hover img { filter: var(--filter-hover); }
-
-.product-detail-info-side {
-  padding: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+.product-detail-info-side { padding: 60px; display: flex; flex-direction: column; justify-content: center; }
 .product-detail-info-side h2 { font-size: 36px; margin-bottom: 24px; }
 .product-detail-description { font-size: 14px; color: var(--text-muted); line-height: 1.9; margin-bottom: 40px; }
 .product-detail-specs { margin-bottom: 40px; }
 .spec-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border-subtle); }
 .spec-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-dim); font-weight: 700; }
 .spec-value { font-size: 13px; color: var(--text-main); font-weight: 600; }
-
 .product-detail-price-block { padding: 32px; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 6px; }
 .price-row { display: flex; align-items: baseline; gap: 12px; }
 .price-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-dim); font-weight: 700; }
@@ -608,9 +442,7 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
 .status-badge { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; padding: 8px 18px; border-radius: 3px; background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-dim); }
 .product-detail-status { margin-bottom: 24px; }
 
-/* ======================================================
-   RESPONSIVE — TABLET
-   ====================================================== */
+/* RESPONSIVE — TABLET */
 @media (max-width: 1024px) {
   .container { padding: 0 36px; }
   .hero h1 { font-size: clamp(36px, 6vw, 64px); }
@@ -619,19 +451,7 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
   .services-grid { grid-template-columns: 1fr; }
   .products-grid { grid-template-columns: 1fr 1fr; }
   .protocol-grid { grid-template-columns: repeat(3, 1fr); }
-  .protocol-step:nth-child(4),
-  .protocol-step:nth-child(5) { display: none; }
-  .protocol-grid::after {
-    content: '';
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border-subtle);
-  }
-  .protocol-grid::after .pseudo-step {
-    background: var(--bg-main);
-    padding: 36px 24px;
-  }
+  .protocol-step:nth-child(4), .protocol-step:nth-child(5) { display: none; }
   .gallery-item, .gallery-item.large { grid-column: span 6; grid-row: span 1; }
   .gallery-mosaic { grid-auto-rows: 200px; }
   .grid-split { grid-template-columns: 1fr; gap: 40px; }
@@ -644,75 +464,53 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
   .service-card { padding: 40px 28px; }
   .section { padding: 80px 0; }
   .contact-section { padding: 80px 0; }
+  
+  .stl-tool-wrapper { grid-template-columns: 1fr; height: auto; }
+  .viewer-container { height: 400px; }
+  .tool-sidebar { height: auto; border-left: none; border-top: 1px solid var(--border-subtle); }
 }
 
-/* ======================================================
-   RESPONSIVE — MOBILE
-   ====================================================== */
+/* RESPONSIVE — MOBILE */
 @media (max-width: 680px) {
   .container { padding: 0 20px; }
-
-  /* Header: hamburger + hide nav */
   nav { display: none; }
   .hamburger { display: block; }
   .header-controls .btn-premium { display: none; }
-
-  /* Hero */
   .hero { min-height: 100vh; padding-top: 70px; }
   .hero h1 { font-size: clamp(32px, 8vw, 52px); margin-bottom: 24px; }
   .hero-content p { font-size: 15px; }
-
-  /* Services */
   .services-grid { grid-template-columns: 1fr; gap: 0; }
   .img-preview { height: 180px; }
   .service-card { padding: 32px 24px; }
   .service-card h3 { font-size: 20px; }
-
-  /* Products */
   .products-grid { grid-template-columns: 1fr; }
   .product-img { aspect-ratio: 4/3; }
   .product-info { padding: 20px; }
-
-  /* How it works — show all 5 steps stacked */
   .protocol-grid { grid-template-columns: 1fr; }
-  .protocol-grid::after { display: none; }
-  .protocol-step:nth-child(4),
-  .protocol-step:nth-child(5) { display: block; }
+  .protocol-step:nth-child(4), .protocol-step:nth-child(5) { display: block; }
   .lead-times { grid-template-columns: 1fr; gap: 12px; }
   .time-card { padding: 24px 16px; }
   .time-card h4 { font-size: 32px; }
-
-  /* Gallery */
   .gallery-mosaic { grid-template-columns: 1fr; grid-auto-rows: 200px; }
   .gallery-item, .gallery-item.large { grid-column: span 1; grid-row: span 1; }
   .gallery-overlay { padding: 20px; }
   .gallery-overlay h3 { font-size: 14px; }
-
-  /* About */
   .grid-split { gap: 32px; }
   .grid-split p { font-size: 14px; }
-
-  /* Reviews */
   .review-box { padding: 28px 20px; }
   .star { font-size: 22px; }
   .stars-container { gap: 8px; }
   .existing-reviews { margin-top: 32px; padding-top: 24px; }
   .review-item { padding: 20px 0; }
   .review-meta { flex-direction: column; align-items: flex-start; gap: 6px; }
-
-  /* Contact */
   .contact-section { padding: 80px 0; }
   .contact-grid { gap: 40px; }
   .form-box { padding: 28px 20px; }
   .input-group input, .input-group textarea { font-size: 16px; }
-
-  /* Footer */
   footer { padding: 60px 0 40px; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .footer-logo-box { height: 36px; }
   .footer-col:last-child { display: none; }
-
-  /* Product detail */
   .product-detail-topbar { height: 60px; padding: 0 20px; }
   .product-detail-back { font-size: 10px; }
   .product-detail-logo { height: 28px; }
@@ -726,16 +524,22 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
   .spec-value { font-size: 12px; }
   .product-detail-price-block { padding: 24px; }
   .price-value { font-size: 26px; }
-
-  /* Section titles */
   h2 { font-size: clamp(26px, 5vw, 42px) !important; }
   .section-tag { font-size: 9px; letter-spacing: 0.2em; }
   .section { padding: 70px 0; }
-
-  /* Stars clickable area */
   .star { padding: 4px; }
 }
 </style>
+
+<!-- Import Map for Three.js (No installation needed) -->
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+</script>
 </head>
 <body>
 
@@ -749,6 +553,7 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
     <nav id="main-nav">
       <a href="#services" data-i18n="navServices">Serviços</a>
       <a href="#products" data-i18n="navProducts">Produtos</a>
+      <a href="#stl-tool" data-i18n="navQuote">Orçamento</a>
       <a href="#how-it-works" data-i18n="navHowItWorks">Como funciona</a>
       <a href="#gallery" data-i18n="navGallery">Galeria</a>
       <a href="#about" data-i18n="navAbout">Sobre</a>
@@ -769,6 +574,7 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
   <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Fechar"><i class="fas fa-times"></i></button>
   <a href="#services" data-i18n="navServices" class="mobile-link">Serviços</a>
   <a href="#products" data-i18n="navProducts" class="mobile-link">Produtos</a>
+  <a href="#stl-tool" data-i18n="navQuote" class="mobile-link">Orçamento</a>
   <a href="#how-it-works" data-i18n="navHowItWorks" class="mobile-link">Como funciona</a>
   <a href="#gallery" data-i18n="galleryTitle" class="mobile-link">Galeria</a>
   <a href="#about" data-i18n="navAbout" class="mobile-link">Sobre</a>
@@ -788,7 +594,7 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
         </p>
         <div class="hero-actions">
           <button class="btn-premium" onclick="scrollToProject('consult')" data-i18n="heroBtnConsult">Falar sobre o meu projeto</button>
-          <a href="#gallery" class="btn-outline" data-i18n="heroBtnGallery">Ver Trabalhos</a>
+          <a href="#stl-tool" class="btn-outline" data-i18n="heroBtnQuote">Obter Orçamento STL</a>
         </div>
       </div>
     </div>
@@ -825,6 +631,77 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
           <h3>AXIS Design</h3>
           <p data-i18n="srv3Desc">Só precisas do ficheiro CAD? Transformamos as tuas ideias num modelo 3D pronto a usar, com as medidas certas.</p>
           <button class="start-project-btn" onclick="scrollToProject('design')" data-i18n="srv3Btn">Preciso de um modelo 3D →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STL TOOL SECTION -->
+  <section class="section reveal" id="stl-tool">
+    <div class="container">
+      <div class="section-tag" data-i18n="toolTag">// ORÇAMENTO INSTANTÂNEO</div>
+      <h2 style="font-size: 48px;" data-i18n="toolTitle">Carrega o teu ficheiro STL.</h2>
+      <p style="color: var(--text-muted); max-width: 600px; margin-top: 10px;" data-i18n="toolDesc">Pré-visualiza a peça em 3D, escolhe o material e obtém uma estimativa imediata. Sem compromisso.</p>
+
+      <div class="stl-tool-wrapper">
+        <div class="viewer-container" id="viewer-container">
+          <div class="upload-overlay" id="upload-overlay">
+            <input type="file" id="file-input" accept=".stl" style="display: none;">
+            <div class="upload-box" onclick="document.getElementById('file-input').click()">
+              <i class="fas fa-cube upload-icon"></i>
+              <div class="upload-text" data-i18n="uploadBtn">Carregar Ficheiro STL</div>
+              <div class="upload-sub" data-i18n="uploadSub">Clica ou arrasta o ficheiro aqui</div>
+            </div>
+          </div>
+          <!-- Canvas injected by JS -->
+        </div>
+
+        <div class="tool-sidebar">
+          <div class="tool-status" id="tool-status">
+            <i class="fas fa-circle-notch fa-spin"></i> <span data-i18n="statusWait">Aguardando ficheiro...</span>
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="lblMaterial">Material Bambu Lab</label>
+            <select id="material-select" class="form-select">
+              <!-- 
+                 PREÇOS CALCULADOS PARA MARGEM SAUDÁVEL:
+                 Custo do rolo (~20€) -> Preço de venda ajustado
+                 data-cost = Preço final ao cliente por grama
+                 data-density = Densidade física (g/cm3)
+              -->
+              <option value="pla_basic" data-cost="0.055" data-density="1.24">PLA Basic (Standard)</option>
+              <option value="pla_matte" data-cost="0.060" data-density="1.24">PLA Matte (Acabamento Fosco)</option>
+              <option value="pla_silk" data-cost="0.060" data-density="1.24">PLA Silk (Efeito Seda)</option>
+              <option value="pla_cf" data-cost="0.080" data-density="1.30">PLA-CF (Reforçado Carbono)</option>
+
+              <option value="petg_basic" data-cost="0.065" data-density="1.27">PETG (Resistente)</option>
+
+              <option value="abs_basic" data-cost="0.070" data-density="1.04">ABS (Técnico)</option>
+              <option value="asa_basic" data-cost="0.070" data-density="1.07">ASA (Exterior/UV)</option>
+
+              <option value="tpu_95a" data-cost="0.10" data-density="1.21">TPU (Flexível 95A)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="lblInfill">Preenchimento (Infill)</label>
+            <select id="infill-select" class="form-select">
+              <option value="0.20" data-mult="1.0">20% (Standard)</option>
+              <option value="0.40" data-mult="1.5">40% (Forte)</option>
+              <option value="1.00" data-mult="2.2">100% (Sólido)</option>
+            </select>
+          </div>
+
+          <div class="price-display">
+            <div class="price-label" data-i18n="lblEst">ESTIMATIVA</div>
+            <div class="price-value" id="price-value">€0.00</div>
+            <div class="price-note" id="vol-value">Vol: 0 cm³</div>
+          </div>
+
+          <div class="min-price-note" id="min-price-note">Preço mínimo aplicado (5.00€)</div>
+
+          <button class="btn-premium" id="order-stl-btn" style="width: 100%; margin-top: auto;" data-i18n="btnOrderStl">Pedir Esta Peça</button>
         </div>
       </div>
     </div>
@@ -916,7 +793,13 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
     <div class="container">
       <div class="section-tag" data-i18n="galTag">// GALERIA</div>
       <h2 style="font-size: 48px;" data-i18n="galTitle">Coisas que já saíram da nossa impressora.</h2>
+      
       <div class="gallery-mosaic">
+
+        <!-- ===================================================================
+             BLOCO DE FOTO GRANDE (Ocupa 2 colunas e 2 linhas)
+             Para adicionar: Copia este div <div class="..."> e cola-o
+             =================================================================== -->
         <div class="gallery-item large">
           <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1200&q=80" alt="Impressão 3D Industrial">
           <div class="gallery-overlay">
@@ -924,14 +807,23 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
             <h3 data-i18n="gal1Title">Suporte estrutural para habitáculo</h3>
           </div>
         </div>
+
+        <!-- ===================================================================
+             BLOCO DE FOTO PEQUENA (Ocupa 1 coluna)
+             Para adicionar: Copia este div <div class="..."> e cola-o
+             =================================================================== -->
         <div class="gallery-item">
           <img src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960?auto=format&fit=crop&w=800&q=80" alt="Peças Impressas">
           <div class="gallery-overlay"><h3 data-i18n="gal2Title">Peças técnicas em produção</h3></div>
         </div>
+
         <div class="gallery-item">
           <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80" alt="Clássico">
           <div class="gallery-overlay"><h3 data-i18n="gal3Title">Engenharia reversa para clássicos</h3></div>
         </div>
+
+        <!-- PODES ADICIONAR MAIS FOTOS PEQUENAS AQUI COPIANDO O BLOCO ACIMA -->
+
       </div>
     </div>
   </section>
@@ -959,7 +851,6 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
       <div class="review-container">
         <div class="review-box">
           <input type="hidden" name="estrelas" id="star-rating-value" value="0">
-
           <div class="review-header">
             <div class="stars-container" id="star-rating">
               <i class="fas fa-star star" data-value="1"></i>
@@ -970,12 +861,10 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
             </div>
             <div class="review-note" data-i18n="revNote">Avaliação confidencial</div>
           </div>
-          
           <form id="review-form" action="https://formspree.io/f/mgorgaqd" method="POST" style="margin:0; padding:0; border:none; background:none;">
             <textarea class="review-input" name="comentario" style="height: 120px;" data-i18n="revPlaceholder" placeholder="Como correu o teu projeto? A peça ficou bem? Alguma sugestão?"></textarea>
             <button type="submit" id="review-submit-btn" class="btn-premium" style="width: 100%;" data-i18n="revBtn">Enviar Avaliação</button>
           </form>
-          
           <div class="existing-reviews">
             <div class="review-item">
               <div class="review-meta">
@@ -1059,7 +948,7 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
           <ul class="footer-links">
             <li><a href="#services" data-i18n="navServices">Serviços</a></li>
             <li><a href="#products" data-i18n="navProducts">Produtos</a></li>
-            <li><a href="#how-it-works" data-i18n="navHowItWorks">Como funciona</a></li>
+            <li><a href="#stl-tool" data-i18n="navQuote">Orçamento</a></li>
             <li><a href="#gallery" data-i18n="navGallery">Galeria</a></li>
             <li><a href="#about" data-i18n="navAbout">Sobre</a></li>
           </ul>
@@ -1107,10 +996,255 @@ footer { padding: 80px 0 48px; background: var(--bg-panel); border-top: 1px soli
   </div>
 </div>
 
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { STLLoader } from 'three/addons/loaders/STLLoader.js';
+
+// ==========================================
+// STL TOOL LOGIC
+// ==========================================
+const container = document.getElementById('viewer-container');
+const fileInput = document.getElementById('file-input');
+const uploadOverlay = document.getElementById('upload-overlay');
+const toolStatus = document.getElementById('tool-status');
+const priceValueEl = document.getElementById('price-value');
+const volValueEl = document.getElementById('vol-value');
+const materialSelect = document.getElementById('material-select');
+const infillSelect = document.getElementById('infill-select');
+const orderStlBtn = document.getElementById('order-stl-btn');
+const minPriceNote = document.getElementById('min-price-note');
+
+let scene, camera, renderer, controls, mesh;
+let currentVolume = 0; // cm3
+let currentFilename = "";
+const MIN_PRICE = 5.00;
+
+function initThreeJS() {
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x000000); // Pure black for contrast
+
+  camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+  camera.position.set(0, 0, 100);
+
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  container.appendChild(renderer.domElement);
+
+  // Lights
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+  scene.add(ambientLight);
+  const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+  dirLight.position.set(50, 50, 50);
+  scene.add(dirLight);
+  const backLight = new THREE.DirectionalLight(0x0055ff, 0.5);
+  backLight.position.set(-50, -50, -50);
+  scene.add(backLight);
+
+  controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  
+  // Grid helper
+  const grid = new THREE.GridHelper(100, 20, 0x333333, 0x111111);
+  grid.rotation.x = Math.PI / 2;
+  scene.add(grid);
+
+  animate();
+  
+  window.addEventListener('resize', onWindowResize);
+}
+
+function onWindowResize() {
+  if(!camera || !renderer) return;
+  camera.aspect = container.clientWidth / container.clientHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(container.clientWidth, container.clientHeight);
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  if(mesh) {
+     mesh.rotation.y += 0.002; // Slight auto rotation
+  }
+  renderer.render(scene, camera);
+}
+
+function handleFileSelect(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  currentFilename = file.name;
+  const reader = new FileReader();
+
+  toolStatus.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span data-i18n="statusLoading">A processar modelo...</span>';
+
+  reader.onload = function(e) {
+    try {
+      const loader = new STLLoader();
+      const geometry = loader.parse(e.target.result);
+
+      // Remove old mesh
+      if (mesh) scene.remove(mesh);
+
+      // Center geometry
+      geometry.center();
+      
+      // Calculate Volume
+      currentVolume = getVolume(geometry); // in cm3 (assuming geometry is mm)
+
+      // Material
+      const material = new THREE.MeshStandardMaterial({ 
+        color: 0xaaaaaa, 
+        metalness: 0.4, 
+        roughness: 0.4,
+        side: THREE.DoubleSide
+      });
+
+      mesh = new THREE.Mesh(geometry, material);
+      
+      // Scale for preview if too big or small
+      const box = new THREE.Box3().setFromObject(mesh);
+      const size = new THREE.Vector3();
+      box.getSize(size);
+      const maxDim = Math.max(size.x, size.y, size.z);
+      
+      if(maxDim > 50 || maxDim < 10) {
+         const scaleFactor = 40 / maxDim; // Normalize to approx 40 units view
+         mesh.scale.set(scaleFactor, scaleFactor, scaleFactor);
+      }
+
+      scene.add(mesh);
+      
+      // Adjust camera
+      camera.position.set(0, 0, maxDim * 2.5 || 100);
+      controls.target.set(0, 0, 0);
+      controls.update();
+
+      // UI Updates
+      uploadOverlay.classList.add('hidden');
+      toolStatus.innerHTML = '<i class="fas fa-check-circle" style="color:#00cc66"></i> <span data-i18n="statusReady">Pronto para orçamentar</span>';
+      toolStatus.classList.add('success');
+      
+      updatePrice();
+
+      // Analytics: Track Upload
+      if(typeof gtag === 'function') {
+        gtag('event', 'upload_stl', {
+          'event_category': 'STL Tool',
+          'event_label': 'File Uploaded'
+        });
+      }
+
+    } catch (err) {
+      console.error(err);
+      toolStatus.innerHTML = '<i class="fas fa-exclamation-triangle" style="color:#ffcc00"></i> <span>Erro ao ler ficheiro STL</span>';
+    }
+  };
+
+  reader.readAsArrayBuffer(file);
+}
+
+// Signed volume of triangle mesh
+function getVolume(geometry) {
+  let position = geometry.attributes.position;
+  let faces = position.count / 3;
+  let sum = 0;
+  let p1 = new THREE.Vector3(), p2 = new THREE.Vector3(), p3 = new THREE.Vector3();
+  
+  for (let i = 0; i < faces; i++) {
+    p1.fromBufferAttribute(position, i * 3 + 0);
+    p2.fromBufferAttribute(position, i * 3 + 1);
+    p3.fromBufferAttribute(position, i * 3 + 2);
+    
+    // Standard formula
+    sum += p1.dot(p2.cross(p3)) / 6.0;
+  }
+  
+  // STL is usually in mm. 
+  // 1 mm^3 = 0.001 cm^3.
+  // The formula returns mm^3.
+  return Math.abs(sum) / 1000; 
+}
+
+function updatePrice() {
+  if (currentVolume === 0) return;
+
+  const matOption = materialSelect.options[materialSelect.selectedIndex];
+  const infillOption = infillSelect.options[infillSelect.selectedIndex];
+
+  const costPerGram = parseFloat(matOption.getAttribute('data-cost'));
+  const density = parseFloat(matOption.getAttribute('data-density')); // g/cm3
+  const infillMult = parseFloat(infillOption.getAttribute('data-mult'));
+
+  // Mass = Volume * Density
+  // Adjusted Mass = Mass * InfillMultiplier (Very rough approximation for tool)
+  const estimatedMass = (currentVolume * density) * infillMult; 
+  
+  let estimatedPrice = estimatedMass * costPerGram;
+
+  // REGRA DE PREÇO MÍNIMO (5.00€)
+  let finalPrice = estimatedPrice;
+  let appliedMinPrice = false;
+
+  if (finalPrice < MIN_PRICE) {
+    finalPrice = MIN_PRICE;
+    appliedMinPrice = true;
+  }
+
+  priceValueEl.innerText = '€' + finalPrice.toFixed(2);
+  volValueEl.innerText = `Vol: ${currentVolume.toFixed(2)} cm³`;
+
+  // Show warning if min price applied
+  if (appliedMinPrice) {
+    minPriceNote.classList.add('visible');
+  } else {
+    minPriceNote.classList.remove('visible');
+  }
+}
+
+// Events
+fileInput.addEventListener('change', handleFileSelect);
+materialSelect.addEventListener('change', updatePrice);
+infillSelect.addEventListener('change', updatePrice);
+
+orderStlBtn.addEventListener('click', () => {
+  if(currentVolume === 0) return;
+  
+  const matName = materialSelect.options[materialSelect.selectedIndex].text.split('(')[0].trim();
+  const infillName = infillSelect.options[infillSelect.selectedIndex].text.split('(')[0].trim();
+  const price = priceValueEl.innerText;
+  
+  const message = `[PEDIDO STL] Ficheiro: ${currentFilename}\nMaterial: ${matName}\nPreenchimento: ${infillName}\nVolume Estimado: ${currentVolume.toFixed(2)} cm³\nCusto Estimado (Site): ${price}\n\nNotas adicionais: `;
+  
+  // Analytics: Track Order Button Click
+  if(typeof gtag === 'function') {
+    gtag('event', 'click_order_stl', {
+      'event_category': 'STL Tool',
+      'event_label': matName,
+      'value': parseInt(price.replace('€','')) // Send price as value
+    });
+  }
+
+  // Use the global function defined in the non-module script below
+  window.scrollToProjectStl(message);
+});
+
+// Initialize
+initThreeJS();
+
+// Expose updatePrice globally just in case logic changes
+window.updateSTLPrice = updatePrice;
+
+</script>
+
 <script>
 // ==========================================
-// HAMBURGER MENU
+// MAIN SITE SCRIPTS (NON-MODULE)
 // ==========================================
+
+// HAMBURGER MENU
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileMenuClose = document.getElementById('mobileMenuClose');
@@ -1126,64 +1260,42 @@ function closeMobileMenu() {
 }
 
 mobileMenuClose.addEventListener('click', closeMobileMenu);
-
 document.querySelectorAll('.mobile-link').forEach(link => {
-  link.addEventListener('click', () => {
-    closeMobileMenu();
-  });
+  link.addEventListener('click', () => { closeMobileMenu(); });
 });
 
-// ==========================================
 // PRODUCT DATA
-// ==========================================
 const productsData = [
   {
     image: "2025-02-01_9e78cc072188.png",
     title: { pt: "Chaveiro AXIS", en: "AXIS Keychain" },
-    desc: { pt: "Chaveiro com logótipos de marcas automóveis. Impresso numa só peça, resistente e com o nosso X. Um acessório simples para quem gosta do mundo automóvel.", en: "Keychain with automotive brand logos. Printed in one piece, durable and with our X. A simple accessory for those who love the automotive world." },
-    specs: [
-      { label: { pt: "Material", en: "Material" }, value: { pt: "A definir", en: "TBD" } },
-      { label: { pt: "Processo", en: "Process" }, value: { pt: "Impressão 3D", en: "3D Printing" } },
-      { label: { pt: "Tamanho", en: "Size" }, value: { pt: "A definir", en: "TBD" } },
-      { label: { pt: "Peso", en: "Weight" }, value: { pt: "A definir", en: "TBD" } }
-    ],
-    price: { pt: "—", en: "—" },
-    priceNote: { pt: "Preço a definir quando estiver disponível", en: "Price to be defined when available" },
+    desc: { pt: "Chaveiro com logótipos de marcas automóveis. Impresso numa só peça, resistente e com o nosso X. Um acessório simples para quem gosta do mundo automóvel.", en: "Keychain with automotive brand logos. Printed in one piece, durable and with our X. A simple accessory for those who love automotive world." },
+    specs: [{ label: { pt: "Material", en: "Material" }, value: { pt: "PLA", en: "PLA" } }],
+    price: { pt: "5.00€", en: "5.00€" },
+    priceNote: { pt: "Preço unitário", en: "Unit price" },
     status: { pt: "Em breve", en: "Coming soon" }
   },
   {
     image: "2025-12-15_04f5a4d4c29cc.png",
     title: { pt: "Suporte 3D", en: "3D Bracket" },
     desc: { pt: "Suporte de telemóvel impresso em 3D. Com articulação e braços de fixação ajustáveis. Imprimido numa só peça, sem necessidade de montagem complexa.", en: "3D printed phone mount. With articulation and adjustable clamping arms. Printed in one piece, no complex assembly needed." },
-    specs: [
-      { label: { pt: "Material", en: "Material" }, value: { pt: "A definir", en: "TBD" } },
-      { label: { pt: "Processo", en: "Process" }, value: { pt: "Impressão 3D", en: "3D Printing" } },
-      { label: { pt: "Tamanho", en: "Size" }, value: { pt: "A definir", en: "TBD" } },
-      { label: { pt: "Carga máx.", en: "Max load" }, value: { pt: "A definir", en: "TBD" } }
-    ],
-    price: { pt: "—", en: "—" },
-    priceNote: { pt: "Preço a definir quando estiver disponível", en: "Price to be defined when available" },
+    specs: [{ label: { pt: "Material", en: "Material" }, value: { pt: "PETG", en: "PETG" } }],
+    price: { pt: "12.00€", en: "12.00€" },
+    priceNote: { pt: "Preço unitário", en: "Unit price" },
     status: { pt: "Em breve", en: "Coming soon" }
   },
   {
     image: "2025-03-02_7d7349e2d28c3.png",
     title: { pt: "Acessório AXIS", en: "AXIS Accessory" },
     desc: { pt: "Porta-lápis feito a partir de pneus. Um design criativo que transforma algo descartável num objeto útil. Impresso em 3D com acabamento realista.", en: "Pen holder made from tires. A creative design that turns something disposable into a useful object. 3D printed with a realistic finish." },
-    specs: [
-      { label: { pt: "Material", en: "Material" }, value: { pt: "A definir", en: "TBD" } },
-      { label: { pt: "Processo", en: "Process" }, value: { pt: "Impressão 3D", en: "3D Printing" } },
-      { label: { pt: "Tamanho", en: "Size" }, value: { pt: "A definir", en: "TBD" } },
-      { label: { pt: "Utilização", en: "Use" }, value: { pt: "Porta-lápis / Decoração", en: "Pen holder / Decoration" } }
-    ],
-    price: { pt: "—", en: "—" },
-    priceNote: { pt: "Preço a definir quando estiver disponível", en: "Price to be defined when available" },
+    specs: [{ label: { pt: "Material", en: "Material" }, value: { pt: "PLA", en: "PLA" } }],
+    price: { pt: "8.00€", en: "8.00€" },
+    priceNote: { pt: "Preço unitário", en: "Unit price" },
     status: { pt: "Em breve", en: "Coming soon" }
   }
 ];
 
-// ==========================================
 // PRODUCT DETAIL
-// ==========================================
 function openProductDetail(index) {
   const product = productsData[index];
   const lang = currentLang;
@@ -1210,24 +1322,18 @@ window.addEventListener('popstate', () => { const ov = document.getElementById('
 window.addEventListener('DOMContentLoaded', () => { const m = location.hash.match(/^#product-(\d+)$/); if (m) { const i = parseInt(m[1]); if (productsData[i]) setTimeout(() => openProductDetail(i), 500); } });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && document.getElementById('product-detail-overlay').classList.contains('open')) closeProductDetail(); });
 
-// ==========================================
 // SCROLL REVEAL
-// ==========================================
 const observer = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }); }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// ==========================================
 // NAV ACTIVE
-// ==========================================
 window.addEventListener('scroll', () => {
   let c = '';
   document.querySelectorAll('section,.contact-section').forEach(s => { if (pageYOffset >= s.offsetTop - 180) c = s.id; });
   document.querySelectorAll('nav a').forEach(a => { a.classList.remove('active'); if (a.getAttribute('href') === '#' + c) a.classList.add('active'); });
 });
 
-// ==========================================
 // THEME
-// ==========================================
 const themeToggleBtn = document.getElementById('theme-toggle');
 const htmlEl = document.documentElement;
 const themeIcon = themeToggleBtn.querySelector('i');
@@ -1237,21 +1343,20 @@ themeToggleBtn.addEventListener('click', () => {
   themeIcon.className = d ? 'fas fa-moon' : 'fas fa-sun';
 });
 
-// ==========================================
 // I18N
-// ==========================================
 const dict = {
   pt: {
-    navServices:"Serviços",navProducts:"Produtos",navHowItWorks:"Como funciona",navGallery:"Galeria",navAbout:"Sobre",navReviews:"Feedback",navBtnStart:"Criar Agora",
-    heroTag:"ENGENHARIA & MANUFATURA ADITIVA",heroTitle:"Tens um desafio técnico?<br><span>Nós resolvemos.</span>",heroDesc:"Da ideia à peça final. Desenhamos, validamos e imprimimos em 3D com a precisão que o teu projeto exige.",heroBtnConsult:"Falar sobre o meu projeto",heroBtnGallery:"Ver Trabalhos",
+    navServices:"Serviços",navProducts:"Produtos",navQuote:"Orçamento",navHowItWorks:"Como funciona",navGallery:"Galeria",navAbout:"Sobre",navReviews:"Feedback",navBtnStart:"Criar Agora",
+    heroTag:"ENGENHARIA & MANUFATURA ADITIVA",heroTitle:"Tens um desafio técnico?<br><span>Nós resolvemos.</span>",heroDesc:"Da ideia à peça final. Desenhamos, validamos e imprimimos em 3D com a precisão que o teu projeto exige.",heroBtnConsult:"Falar sobre o meu projeto",heroBtnQuote:"Obter Orçamento STL",
+    toolTag:"// ORÇAMENTO INSTANTÂNEO",toolTitle:"Carrega o teu ficheiro STL.",toolDesc:"Pré-visualiza a peça em 3D, escolhe o material e obtém uma estimativa imediata. Sem compromisso.",
+    uploadBtn:"Carregar Ficheiro STL",uploadSub:"Clica ou arrasta o ficheiro aqui",statusWait:"Aguardando ficheiro...",statusLoading:"A processar modelo...",statusReady:"Pronto para orçamentar",
+    lblMaterial:"Material Bambu Lab",lblInfill:"Preenchimento (Infill)",lblEst:"ESTIMATIVA",btnOrderStl:"Pedir Esta Peça",
     srvTag:"// O QUE FAZEMOS",srvTitle:"Soluções de engenharia, sem complicação.",
     srv1Tag:"DESENVOLVIMENTO",srv1Desc:"Precisas de uma peça que não existe? Criamos do zero. Validamos a geometria e escolhemos o material certo para que funcione como deve ser.",srv1Btn:"Quero uma peça única →",
     srv2Tag:"REVERSA",srv2Desc:"Peça partida ou que já não se encontra? Fazemos engenharia reversa, redesenhamos e reforçamos para durar mais do que a original.",srv2Btn:"Recuperar a minha peça →",
     srv3Tag:"MODELAÇÃO",srv3Desc:"Só precisas do ficheiro CAD? Transformamos as tuas ideias num modelo 3D pronto a usar, com as medidas certas.",srv3Btn:"Preciso de um modelo 3D →",
     prodTag:"// PRODUTOS AXIS",prodTitle:"Coisas que imprimimos.",prodDesc:"Pequenos produtos que saem da nossa impressora. O mesmo cuidado que colocamos nos projetos de engenharia, agora em coisas que podes ter na mão.",prodBadge:"Em breve",prodClickHint:"Ver detalhes",
-    prod1Title:"Chaveiro AXIS",prod1Desc:"Chaveiro com logótipos de marcas automóveis. Impresso numa só peça, com o nosso X.",
-    prod2Title:"Suporte 3D",prod2Desc:"Suporte de telemóvel impresso em 3D. Com articulação e braços de fixação ajustáveis.",
-    prod3Title:"Acessório AXIS",prod3Desc:"Porta-lápis feito a partir de pneus. Design criativo, impresso em 3D.",
+    prod1Title:"Chaveiro AXIS",prod1Desc:"Chaveiro com logótipos de marcas automóveis. Impresso numa só peça, com o nosso X.",prod2Title:"Suporte 3D",prod2Desc:"Suporte de telemóvel impresso em 3D. Com articulação e braços de fixação ajustáveis.",prod3Title:"Acessório AXIS",prod3Desc:"Porta-lápis feito a partir de pneus. Design criativo, impresso em 3D.",
     hiwTag:"// COMO FUNCIONA",hiwTitle:"Do problema à solução. Passo a passo.",
     hiw1Title:"Análise",hiw1Desc:"Conta-nos o que precisas. Pode ser uma foto, um esboço, ou apenas uma ideia.",
     hiw2Title:"Estudo",hiw2Desc:"Analisamos as forças, o espaço e o uso para definir o melhor desenho e material.",
@@ -1277,19 +1382,20 @@ const dict = {
     galleryTitle:"Galeria"
   },
   en: {
-    navServices:"Services",navProducts:"Products",navHowItWorks:"How it works",navGallery:"Gallery",navAbout:"About",navReviews:"Feedback",navBtnStart:"Start Now",
-    heroTag:"ENGINEERING & ADDITIVE MANUFACTURING",heroTitle:"Have a technical challenge?<br><span>We solve it.</span>",heroDesc:"From idea to final part. We design, validate and 3D print with the precision your project needs.",heroBtnConsult:"Discuss my project",heroBtnGallery:"View Works",
+    navServices:"Services",navProducts:"Products",navQuote:"Quote",navHowItWorks:"How it works",navGallery:"Gallery",navAbout:"About",navReviews:"Feedback",navBtnStart:"Start Now",
+    heroTag:"ENGINEERING & ADDITIVE MANUFACTURING",heroTitle:"Have a technical challenge?<br><span>We solve it.</span>",heroDesc:"From idea to final part. We design, validate and 3D print with precision your project needs.",heroBtnConsult:"Discuss my project",heroBtnQuote:"Get STL Quote",
+    toolTag:"// INSTANT QUOTE",toolTitle:"Upload your STL file.",toolDesc:"Preview 3D part, choose material, and get an estimate immediately. No commitment.",
+    uploadBtn:"Upload STL File",uploadSub:"Click or drag file here",statusWait:"Waiting for file...",statusLoading:"Processing model...",statusReady:"Ready to quote",
+    lblMaterial:"Bambu Lab Material",lblInfill:"Infill",lblEst:"ESTIMATE",btnOrderStl:"Order This Part",
     srvTag:"// WHAT WE DO",srvTitle:"Engineering solutions, no hassle.",
-    srv1Tag:"DEVELOPMENT",srv1Desc:"Need a part that doesn't exist? We create it from scratch. We validate the geometry and choose the right material so it works as it should.",srv1Btn:"I need a custom part →",
+    srv1Tag:"DEVELOPMENT",srv1Desc:"Need a part that doesn't exist? We create it from scratch. We validate geometry and choose right material so it works as it should.",srv1Btn:"I need a custom part →",
     srv2Tag:"REVERSE",srv2Desc:"Broken part or no longer available? We do reverse engineering, redesign and reinforce it to last longer than the original.",srv2Btn:"Recover my part →",
     srv3Tag:"MODELING",srv3Desc:"Just need the CAD file? We turn your ideas into a ready-to-use 3D model with the right measurements.",srv3Btn:"I need a 3D model →",
     prodTag:"// AXIS PRODUCTS",prodTitle:"Things we print.",prodDesc:"Small products that come out of our printer. The same care we put into engineering projects, now in things you can hold.",prodBadge:"Coming soon",prodClickHint:"View details",
-    prod1Title:"AXIS Keychain",prod1Desc:"Keychain with automotive brand logos. Printed in one piece, with our X.",
-    prod2Title:"3D Bracket",prod2Desc:"3D printed phone mount. With articulation and adjustable clamping arms.",
-    prod3Title:"AXIS Accessory",prod3Desc:"Tire pen holder. Creative design, 3D printed with a realistic finish.",
+    prod1Title:"AXIS Keychain",prod1Desc:"Keychain with automotive brand logos. Printed in one piece, with our X.",prod2Title:"3D Bracket",prod2Desc:"3D printed phone mount. With articulation and adjustable clamping arms.",prod3Title:"AXIS Accessory",prod3Desc:"Tire pen holder. Creative design, 3D printed with a realistic finish.",
     hiwTag:"// HOW IT WORKS",hiwTitle:"From problem to solution. Step by step.",
     hiw1Title:"Analysis",hiw1Desc:"Tell us what you need. It can be a photo, a sketch, or just an idea.",
-    hiw2Title:"Study",hiw2Desc:"We analyze the forces, space and use to define the best design and material.",
+    hiw2Title:"Study",hiw2Desc:"We analyze forces, space and use to define best design and material.",
     hiw3Title:"Modeling",hiw3Desc:"We draw the part on the computer with exact measurements to fit where it should.",
     hiw4Title:"Printing",hiw4Desc:"We send it to the 3D printer. The part comes out with the right shape and strength.",
     hiw5Title:"Delivery",hiw5Desc:"You receive the part ready to assemble. Simple as that.",
@@ -1325,11 +1431,17 @@ langToggleBtn.addEventListener('click', () => {
   currentLang = currentLang === 'pt' ? 'en' : 'pt';
   langToggleBtn.innerText = currentLang === 'pt' ? 'EN' : 'PT';
   updateContent();
+  
+  // Analytics: Track Language Change
+  if(typeof gtag === 'function') {
+    gtag('event', 'language_switch', {
+      'event_category': 'User Settings',
+      'event_label': currentLang
+    });
+  }
 });
 
-// ==========================================
-// CONTEXT-AWARE FORM
-// ==========================================
+// CONTEXT-AWARE FORM (ORIGINAL)
 function scrollToProject(contextKey) {
   const cs = document.getElementById('contact');
   const df = document.getElementById('project-details');
@@ -1339,9 +1451,20 @@ function scrollToProject(contextKey) {
   setTimeout(() => { df.focus(); const v = df.value; df.value=''; df.value = v; }, 800);
 }
 
-// ==========================================
+// NEW STL CONTEXT
+window.scrollToProjectStl = function(message) {
+  const cs = document.getElementById('contact');
+  const df = document.getElementById('project-details');
+  const pj = document.getElementById('input-proj');
+  
+  pj.value = "Orçamento via Ferramenta Online";
+  df.value = message;
+  
+  cs.scrollIntoView({ behavior:'smooth' });
+  setTimeout(() => { df.focus(); const v = df.value; df.value=''; df.value = v; }, 800);
+};
+
 // STARS + GUARDAR NOTA
-// ==========================================
 document.querySelectorAll('.star').forEach(star => {
   star.addEventListener('click', () => {
     const val = star.getAttribute('data-value');
@@ -1350,116 +1473,58 @@ document.querySelectorAll('.star').forEach(star => {
   });
 });
 
-// ==========================================
-// ENVIO DE AVALIAÇÃO (FORMSPREE)
-// ==========================================
-const reviewForm = document.getElementById('review-form');
-const reviewSubmitBtn = document.getElementById('review-submit-btn');
-
-if(reviewForm) {
-  reviewForm.addEventListener('submit', async function(e) {
-    e.preventDefault(); 
-    
-    const btnTextOriginal = reviewSubmitBtn.innerText;
-    reviewSubmitBtn.innerText = 'A enviar...';
-    reviewSubmitBtn.disabled = true;
-    reviewSubmitBtn.style.opacity = '0.6';
-
-    const formData = new FormData(reviewForm);
-
-    try {
-      const response = await fetch(reviewForm.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        reviewSubmitBtn.innerText = 'Obrigado pela avaliação!';
-        reviewSubmitBtn.style.background = '#28a745'; 
-        reviewForm.reset(); 
-        document.getElementById('star-rating-value').value = '0'; 
-        document.querySelectorAll('.star').forEach(s => s.classList.remove('active')); 
-        
-        setTimeout(() => {
-          reviewSubmitBtn.innerText = btnTextOriginal;
-          reviewSubmitBtn.style.background = '';
-          reviewSubmitBtn.disabled = false;
-          reviewSubmitBtn.style.opacity = '1';
-        }, 4000);
-
-      } else {
-        throw new Error('Erro no envio');
-      }
-    } catch (error) {
-      reviewSubmitBtn.innerText = 'Erro. Tenta novamente.';
-      reviewSubmitBtn.style.background = '#dc3545'; 
-      setTimeout(() => {
-        reviewSubmitBtn.innerText = btnTextOriginal;
-        reviewSubmitBtn.style.background = '';
-        reviewSubmitBtn.disabled = false;
-        reviewSubmitBtn.style.opacity = '1';
-      }, 3000);
-    }
-  });
-}
-
-
-// ==========================================
-// ENVIO DE FORMULÁRIO DE CONTACTO (FORMSPREE)
-// ==========================================
-const form = document.getElementById('project-form');
-const submitBtn = document.getElementById('submit-btn');
-
-if(form) {
+// FORMS HANDLING
+async function handleForm(formId, btnId, successMsg) {
+  const form = document.getElementById(formId);
+  if(!form) return;
+  const btn = document.getElementById(btnId);
+  
   form.addEventListener('submit', async function(e) {
     e.preventDefault(); 
-    
-    const btnTextOriginal = submitBtn.innerText;
-    submitBtn.innerText = 'A enviar...';
-    submitBtn.disabled = true;
-    submitBtn.style.opacity = '0.6';
-
-    const formData = new FormData(form);
+    const btnTextOriginal = btn.innerText;
+    btn.innerText = 'A enviar...';
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
 
     try {
       const response = await fetch(form.action, {
         method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
       });
 
       if (response.ok) {
-        submitBtn.innerText = 'Mensagem Enviada com Sucesso!';
-        submitBtn.style.background = '#28a745'; 
+        btn.innerText = successMsg;
+        btn.style.background = '#28a745'; 
         form.reset(); 
-        
+        if(formId === 'review-form') {
+           document.getElementById('star-rating-value').value = '0'; 
+           document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
+        }
         setTimeout(() => {
-          submitBtn.innerText = btnTextOriginal;
-          submitBtn.style.background = '';
-          submitBtn.disabled = false;
-          submitBtn.style.opacity = '1';
+          btn.innerText = btnTextOriginal;
+          btn.style.background = '';
+          btn.disabled = false;
+          btn.style.opacity = '1';
         }, 4000);
-
       } else {
         throw new Error('Erro no envio');
       }
     } catch (error) {
-      submitBtn.innerText = 'Ocorreu um erro. Tenta novamente.';
-      submitBtn.style.background = '#dc3545'; 
+      btn.innerText = 'Erro. Tenta novamente.';
+      btn.style.background = '#dc3545'; 
       setTimeout(() => {
-        submitBtn.innerText = btnTextOriginal;
-        submitBtn.style.background = '';
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
+        btn.innerText = btnTextOriginal;
+        btn.style.background = '';
+        btn.disabled = false;
+        btn.style.opacity = '1';
       }, 3000);
     }
   });
 }
+
+handleForm('review-form', 'review-submit-btn', 'Obrigado pela avaliação!');
+handleForm('project-form', 'submit-btn', 'Mensagem Enviada com Sucesso!');
 
 updateContent();
 </script>
