@@ -81,7 +81,7 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color:
 .section-tag { display: flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 24px; }
 
 /* HEADER */
-header { position: fixed; top: 0; width: 100%; height: 90px; background: var(--header-bg); backdrop-filter: blur(25px); border-bottom: 1px solid var(--border-subtle); z-index: 1000; transition: background-color 0.5s ease, border-color 0.5s ease; }
+header { position: fixed; top: 0; width: 100%; height: 90px; background: var(--header-bg); backdrop-filter: blur(25px); border-bottom:1px solid var(--border-subtle); z-index: 1000; transition: background-color 0.5s ease, border-color 0.5s ease; }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
 .brand-logo-container { display: flex; align-items: center; height: 75px; text-decoration: none; position: relative; flex-shrink: 0; }
 .brand-logo-container img { position: absolute; height: 100%; width: auto; object-fit: contain; }
@@ -896,7 +896,7 @@ let stlColor = "#000000";
 let scene, camera, renderer, controls, mesh;
 let currentVolume = 0; 
 let currentFilename = "";
-const MIN_PRICE = 5.00;
+const MIN_PRICE =5.00;
 
 function initThreeJS() {
   scene = new THREE.Scene();
@@ -907,9 +907,6 @@ function initThreeJS() {
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
-  // Melhoria: Shadow Map (Opcional, mas bom para realismo)
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   container.appendChild(renderer.domElement);
 
   // Melhoria de Iluminação
@@ -932,8 +929,7 @@ function initThreeJS() {
   scene.add(rimLight);
 
   controls = new OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-  
+  controls.enableDamping = true;  
   const grid = new THREE.GridHelper(100, 20, 0x333333, 0x111111);
   grid.rotation.x = Math.PI / 2;
   scene.add(grid);
@@ -975,7 +971,7 @@ function handleFileSelect(event) {
       const material = new THREE.MeshStandardMaterial({ 
         color: stlColor, 
         roughness: 0.2, // Mais brilhante/liso
-        metalness: 0.1, // Pouco metálico, mas suficientes para reflexos
+        metalness: 0.1, // Pouco metálico, mas suficiente para reflexos
         side: THREE.DoubleSide
       });
       mesh = new THREE.Mesh(geometry, material);
@@ -1179,7 +1175,7 @@ const carBrands = [
     { name: "Fiat", file: "Fiat.stl" },
     { name: "Ford", file: "Ford.stl" },
     { name: "Honda", file: "Honda.stl" },
-    { name: "Hyundai", file: "Hyundai.stl" },
+    { name: "Hyundai", file: "Hyundai.stl" }, 
     { name: "Kia", file: "Kia.stl" },
     { name: "Lamborghini", file: "Lamborghini.stl" },
     { name: "Land Rover", file: "Land+Rover.stl" },
@@ -1187,7 +1183,7 @@ const carBrands = [
     { name: "Maserati", file: "Maserati.stl" },
     { name: "Mazda", file: "Mazda.stl" },
     { name: "McLaren", file: "McLaren.stl" },
-    { name: "Mercedes", file: "Mercedes.stl" },
+    { name: "Mercedes", file: "Mercedes.stl" }, // Corrigido (faltava o 'c')
     { name: "Mini", file: "Mini.stl" },
     { name: "Mitsubishi", file: "Mitsubishi.stl" },
     { name: "Nissan", file: "Nissan.stl" },
@@ -1198,7 +1194,7 @@ const carBrands = [
     { name: "Seat", file: "Seat.stl" },
     { name: "Skoda", file: "Skoda.stl" },
     { name: "Subaru", file: "Subaru.stl" },
-    { name: "Suzuki", file: "Suzuki.stl" },
+    { name: "Suzuki", file: "Suzuki.stl" }, // Corrigido (faltava o 'k')
     { name: "Tesla", file: "Tesla.stl" },
     { name: "Toyota", file: "Toyota.stl" },
     { name: "Volkswagen", file: "Volkswagen.stl" },
@@ -1209,32 +1205,12 @@ let currentSelectedBrand = "Audi"; // Default brand
 let currentConfiguratorColor = "#000000"; // Shared color state
 const KEYCHAIN_PRICE = 6.50; // Preço Fixo Chaveiro
 
-// ==========================================
-// UI LOGIC (Includes openProductDetail)
-// ==========================================
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const mobileMenuClose = document.getElementById('mobileMenuClose');
-
-hamburgerBtn.addEventListener('click', () => {
-  mobileMenu.classList.add('open');
-  document.body.style.overflow = 'hidden';
-});
-
-function closeMobileMenu() {
-  mobileMenu.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-mobileMenuClose.addEventListener('click', closeMobileMenu);
-document.querySelectorAll('.mobile-link').forEach(link => {
-  link.addEventListener('click', () => { closeMobileMenu(); });
-});
-
 // PRODUCT DATA
 const productsData = [
   {
-    isConfigurator: true, // Keychain
+    // CHAVEIRO (Configurador - 3D)
+    isConfigurator: true, 
+    image: "", 
     title: { pt: "Chaveiro AXIS", en: "AXIS Keychain" },
     desc: { pt: "Chaveiro com logótipos de marcas automóveis. Personalizável em 3D.", en: "Keychain with automotive brand logos. Customizable in 3D." },
     specs: [],
@@ -1242,6 +1218,7 @@ const productsData = [
     status: { pt: "Disponível", en: "Available" }
   },
   {
+    // SUPORTE 3D (Estático - Apenas Imagem)
     isConfigurator: false,
     image: "2025-12-15_04f5a4d4c29cc.png",
     title: { pt: "Suporte 3D", en: "3D Bracket" },
@@ -1251,11 +1228,12 @@ const productsData = [
     status: { pt: "Disponível", en: "Available" }
   },
   {
+    // ACESSÓRIO AXIS (Estático - Apenas Imagem)
     isConfigurator: false,
     image: "2025-03-02_7d7349e2d28c3.png",
     title: { pt: "Acessório AXIS", en: "AXIS Accessory" },
     desc: { pt: "Porta-lápis feito a partir de pneus. Um design criativo que transforma algo descartável num objeto útil. Impresso em 3D com acabamento realista.", en: "Pen holder made from tires. A creative design that turns something disposable into a useful object. 3D printed with a realistic finish." },
-    specs: [{ label: { pt: "Material", en: "Material" }, value: { pt: "PLA", en: "PLA" } }],
+    specs: [{ label: { pt: "Material", en: "Material" }, value: { pt: "Pneu Reciclado", en: "Recycled Tire" } }],
     price: { pt: "8.00€", en: "8.00€" },
     status: { pt: "Disponível", en: "Available" }
   }
@@ -1287,7 +1265,9 @@ function openProductDetail(index) {
 
   // Handle Type (Configurator vs Static)
   if (product.isConfigurator) {
-    // CONFIGURATOR MODE (Chaveiro)
+    // CONFIGURADOR MODE (Chaveiro)
+    console.log("Abrindo Configurador (Chaveiro)...");
+    
     imageContainer.style.display = 'none';
     threeContainer.style.display = 'block';
     configContainer.style.display = 'block';
@@ -1344,6 +1324,8 @@ function openProductDetail(index) {
 
   } else {
     // STATIC MODE
+    console.log("Abrindo Produto Estático (Suporte/Acessório)...");
+
     imageContainer.src = product.image;
     imageContainer.style.display = 'block';
     threeContainer.style.display = 'none';
@@ -1357,12 +1339,15 @@ function openProductDetail(index) {
     document.querySelector('.pd-status span').textContent = product.status[lang];
     document.getElementById('pd-desc').textContent = product.desc[lang];
     document.getElementById('pd-specs').innerHTML = '';
-    product.specs.forEach(s => { 
-        const r = document.createElement('div'); 
-        r.className = 'spec-row'; 
-        r.innerHTML = `<span class="spec-label">${s.label[lang]}</span><span class="spec-value">${s.value[lang]}</span>`; 
-        document.getElementById('pd-specs').appendChild(r); 
-    });
+    
+    if(product.specs && product.specs.length > 0) {
+        product.specs.forEach(s => { 
+            const r = document.createElement('div'); 
+            r.className = 'spec-row'; 
+            r.innerHTML = `<span class="spec-label">${s.label[lang]}</span><span class="spec-value">${s.value[lang]}</span>`; 
+            document.getElementById('pd-specs').appendChild(r); 
+        });
+    }
     
     // Static order button logic
     pdOrderBtn.style.display = 'block';
@@ -1504,7 +1489,7 @@ const dict = {
     gal1Tag:"PROJECT / 01",gal1Title:"Structural cabin bracket",gal2Title:"Technical parts in production",gal3Title:"Reverse engineering for classics",
     abtTag:"// WHY AXIS?",abtTitle:"Born to solve problems.",
     abtP1:"Often part you need simply doesn't exist. Instead of improvising with adaptations that don't fit well, we prefer to design right solution from start.",
-    abtP2:"We combine engineering with 3D printing to create parts that actually work. You bring the problem, we handle rest.",
+    abtP2:"We combine engineering with 3D printing to create parts that actually work. You bring problem, we handle rest.",
     revTag:"// FEEDBACK",revTitle:"What people say who worked with us.",revDesc:"Real feedback from completed projects.",revNote:"Confidential evaluation",revPlaceholder:"How did your project go? Did part turn out well? Any suggestions?",revBtn:"Submit Review",
     revCtx1:"AXIS Fix — Motor bracket",revText1:"The part fit perfectly. The vibration problem disappeared completely. Direct assembly, no adjustments needed.",
     revCtx2:"AXIS Custom — Adapter",revText2:"They did reverse engineering of a part that was no longer available. The CAD model was impeccable and we could produce internally without issues.",
